@@ -35,6 +35,22 @@
 
 ### Пользователь-сервер
 1) При регистрации нового пользователя посылается запрос на сервер. Проверяются данные и записываются в базу данных.
+#### Регистрация
+* Запрос
+```
+{
+    "nickname":"Andrey",
+    "password":"strongpassword1337"
+}
+```
+* Ответ
+```
+{
+    "accessToken": "JusOh2nRK1kZpxzK"
+}
+```
+
+
 2) При авторизации пользователя посылается запрос на сервер. Проверяются данные и отправляется разрешение на вход.
 3) При прогрузке страницы с картой собак серверу посылается запрос для получения координат ошейников.
 4) При выборе определенной собаки серверу посылается запрос для получения характеристики собаки и текущих заданий.
@@ -50,9 +66,10 @@
 `users(user_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, login VARCHAR(255), password VARCHAR(255)(хэшированный), is_deleted BOOLEAN)`
 
 #### Таблица с собаками
-`dogs(dog_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME is_deleted BOOLEAN)`
+`dogs(dog_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN)`
 
-
+#### Таблица с собаками
+`dogs(dog_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN)`
 
 
 
