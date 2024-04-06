@@ -164,7 +164,6 @@
 ```
 {
     "accessToken": "JusOh2nRK1kZpxzK",
-    "dog_id": 3,
     "goal_id": 12
 }
 ```
@@ -176,12 +175,11 @@
 ```
 8) Если пользователь хочет приложить отклик к взятому заданию, отправляется запрос и в базе данных всё это фиксируется.
 #### Приложить отклик
-```/dogs/task/response```
+```/dogs/task/response/give```
 * Запрос
 ```
 {
     "accessToken": "JusOh2nRK1kZpxzK",
-    "dog_id": 3,
     "goal_id": 12,
     "comments": "Всё сделал как надо",
     "photo": "dog.img",
@@ -194,7 +192,65 @@
     "success": "true"
 }
 ```
-9) Если пользователь хочет приложить отклик к взятому заданию, отправляется запрос и в базе данных всё это фиксируется.
+9) Если создатель задания захочет посмотреть отклики.
+#### Просмотреть отклики
+```/dogs/task/response/list```
+* Запрос
+```
+{
+    "accessToken": "JusOh2nRK1kZpxzK",
+    "goal_id": 12
+}
+```
+* Ответ
+```
+{
+    "success": "true"
+    "responses": [
+    {
+        "response_user": "Danny",
+        "response_id": 3,
+        "comment": "Всё сделал как надо",
+        "photo": "dog.img"
+    },
+    {
+        "response_user": "Danny",
+        "response_id": 21,
+        "comment": "Отвез в шаурменко",
+        "photo": "dog2.img"
+    }]
+}
+```
+10) Подтверждение, что задание выполнено
+#### Подтверждение, что задание выполнено
+```/dogs/task/response/confirm```
+* Запрос
+```
+{
+    "accessToken": "JusOh2nRK1kZpxzK",
+    "response_id": 12 
+}
+```
+* Ответ
+```
+{
+    "success": "true"
+    "responses": [
+    {
+        "response_user": "Danny",
+        "response_id": 3,
+        "comment": "Всё сделал как надо",
+        "photo": "dog.img"
+    },
+    {
+        "response_user": "Danny",
+        "response_id": 21,
+        "comment": "Отвез в шаурменко",
+        "photo": "dog2.img"
+    }]
+}
+```
+
 
 ### Админ-сервер
 1) Посылается запрос, чтобы получить дату последнего сигнала и показателей здоровья.
