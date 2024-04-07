@@ -27,24 +27,8 @@
 Примерная схема запросов-ответов
 
 ### Ошейник-сервер
-1) При регистрации новой собаки на сервер посылается запрос с данными о собаке. Соответственно эти данные фиксируется в базе данных.
-#### Регистрация новой собаки
-```/dogs/register```
-* Запрос
 ```
-{
-    "accessToken": "JusOh2nRK1kZpxzK",
-    "characteristic": "Рыжий корги, рост 25 см, вес 10кг, дружелюбный и обаятельный"
-}
-```
-* Ответ
-```
-{
-    "success": "true",
-    "dog_id": 44
-}
-```
-2) Ошейник посылает раз в какое то время запрос с данными о местоположении. Местоположение и время последнего сигнала фиксируется в базе данных.
+1) Ошейник посылает раз в какое то время запрос с данными о местоположении. Местоположение и время последнего сигнала фиксируется в базе данных.
 #### Обновить данные
 ```/dogs/update```
 * Запрос
@@ -157,12 +141,12 @@
     "success": "true",
     "tasks": [
         {
-            "goal_id": 34,
+            "task_id": 34,
             "asked_user": "Glebus",
             "goal": "Принести собаку в шаурмечную"
         },
         {
-            "goal_id": 3,
+            "task_id": 3,
             "asked_user": "Danny",
             "goal": "Вытащить собаку из шаурмечной"
         }
@@ -184,7 +168,7 @@
 ```
 {
     "success": "true",
-    "goal_id": 12
+    "task_id": 12
 }
 ```
 7) Если пользователь решает взять задание, то отправляется запрос. В базе данных фиксируется исполнитель задания.
@@ -194,7 +178,7 @@
 ```
 {
     "accessToken": "JusOh2nRK1kZpxzK",
-    "goal_id": 12
+    "task_id": 12
 }
 ```
 * Ответ
@@ -210,7 +194,7 @@
 ```
 {
     "accessToken": "JusOh2nRK1kZpxzK",
-    "goal_id": 12,
+    "task_id": 12,
     "comments": "Всё сделал как надо",
     "photo": "dog.img",
     "done": "true"
@@ -229,7 +213,7 @@
 ```
 {
     "accessToken": "JusOh2nRK1kZpxzK",
-    "goal_id": 12
+    "task_id": 12
 }
 ```
 * Ответ
@@ -258,7 +242,7 @@
 ```
 {
     "accessToken": "JusOh2nRK1kZpxzK",
-    "goal_id": 12,
+    "task_id": 12,
     "done": "true" 
 }
 ```
@@ -271,7 +255,25 @@
 
 
 ### Админ-сервер
-1) Посылается запрос, чтобы получить дату последнего сигнала и координаты.
+1) При регистрации новой собаки на сервер посылается запрос с данными о собаке. Соответственно эти данные фиксируется в базе данных.
+#### Регистрация новой собаки
+```/dogs/register```
+* Запрос
+```
+{
+    "accessToken": "JusOh2nRK1kZpxzK",
+    "characteristic": "Рыжий корги, рост 25 см, вес 10кг, дружелюбный и обаятельный",
+    "place": "Irkutsk"
+}
+```
+* Ответ
+```
+{
+    "success": "true",
+    "dog_id": 44
+}
+
+2) Посылается запрос, чтобы получить дату последнего сигнала и координаты.
 #### Получить данные
 ```/dogs/info```
 * Запрос
@@ -291,15 +293,16 @@
 
 ## Базы данных:
 #### Таблица с пользователями
-`users(user_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, login VARCHAR(255), password VARCHAR(255)(хэшированный), is_deleted BOOLEAN)`
+`users(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, login VARCHAR(255), password VARCHAR(255)(хэшированный), is_admin BOOLEAN, is_deleted BOOLEAN)`
 
 #### Таблица с собаками
-`dogs(dog_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN)`
+`dogs(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN)`
 
-#### Таблица с собаками
-`dogs(dog_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN)`
+#### Таблица с заданиями
+`tasks(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, goal VARCHAR(255), done BOOLEAN)`
 
-
+#### Таблица с решениями
+`responses(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, task_id BIGINT UNSIGNED NOT NULL, comment VARCHAR(255), photo VARCHAR(255))`
 
 
 
