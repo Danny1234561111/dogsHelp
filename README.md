@@ -292,7 +292,7 @@
 
 ## Базы данных:
 #### Таблица с пользователями
-`users(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, login VARCHAR(255), password VARCHAR(255)(хэшированный), is_admin BOOLEAN, is_deleted BOOLEAN)`
+`users(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, login VARCHAR(255), password VARCHAR(255)(хэшированный), accessToken VARCHAR(255) NOT NULL, is_admin BOOLEAN, is_deleted BOOLEAN)`
 
 #### Таблица с собаками
 `dogs(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN, accessToken VARCHAR(255) NOT NULL)`
