@@ -260,7 +260,8 @@
 {
     "accessToken": "JusOh2nRK1kZpxzK",
     "characteristic": "Рыжий корги, рост 25 см, вес 10кг, дружелюбный и обаятельный",
-    "place": "Irkutsk"
+    "place": "Irkutsk",
+    "dogAccessToken": "JdlqwdEQ12FEfweA"
 }
 ```
 * Ответ
@@ -294,7 +295,7 @@
 `users(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, login VARCHAR(255), password VARCHAR(255)(хэшированный), is_admin BOOLEAN, is_deleted BOOLEAN)`
 
 #### Таблица с собаками
-`dogs(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN)`
+`dogs(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, characteristic VARCHAR(255), coords VARCHAR(255), last_send DATETIME, is_deleted BOOLEAN, accessToken VARCHAR(255) NOT NULL)`
 
 #### Таблица с заданиями
 `tasks(id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, goal VARCHAR(255), done BOOLEAN)`
