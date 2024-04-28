@@ -33,7 +33,6 @@
 ```
 {
     "accessToken": "JusOh2nRK1kZpxzK",
-    "time": "2024.11.04T11:44:12",
     "dog_id": 44,
     "coordinates": "52.250323, 104.264442"
 }
