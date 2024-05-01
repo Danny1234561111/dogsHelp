@@ -220,13 +220,11 @@
     "responses": [
     {
         "response_user": "Danny",
-        "response_id": 3,
         "comment": "Всё сделал как надо",
         "photo": "dog.img"
     },
     {
         "response_user": "Danny",
-        "response_id": 21,
         "comment": "Отвез в шаурменко",
         "photo": "dog2.img"
     }]
