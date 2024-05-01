@@ -195,7 +195,6 @@
     "task_id": 12,
     "comments": "Всё сделал как надо",
     "photo": "dog.img",
-    "done": "true"
 }
 ```
 * Ответ
