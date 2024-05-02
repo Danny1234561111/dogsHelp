@@ -32,7 +32,7 @@
 * Запрос
 ```
 {
-    "accessToken": "JusOh2nRK1kZpxzK",
+    "accessDogToken": "JusOh2nRK1kZpxzK",
     "dog_id": 44,
     "coordinates": "52.250323, 104.264442"
 }
@@ -264,7 +264,8 @@
 ```
 {
     "success": "true",
-    "dog_id": 44
+    "dog_id": 44,
+    "accessDogToken": "JusOh2nRK1kZpxzK"
 }
 ```
 
