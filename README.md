@@ -288,14 +288,16 @@
 
 ## Базы данных:
 #### Таблица с пользователями
-`users (
+```
+users (
     id INT PRIMARY KEY,
     login VARCHAR(255),
     password VARCHAR(255)(хэшированный),
     accessToken VARCHAR(255),
     is_admin BOOLEAN,
     is_deleted BOOLEAN
-)`
+)
+```
 
 #### Таблица с собаками
 ```
