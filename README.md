@@ -294,6 +294,7 @@
 {
     "accessToken": "JusOh2nRK1kZpxzK",
     "changed_user_login": 12,
+    "delete": true
 }
 ```
 * Ответ
@@ -310,6 +311,7 @@
 {
     "accessToken": "JusOh2nRK1kZpxzK",
     "dog_id": 12,
+    "delete": true
 }
 ```
 * Ответ
