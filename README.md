@@ -341,7 +341,8 @@ dogs (
     coords VARCHAR(255),
     last_send DATETIME,
     is_deleted BOOLEAN,
-    place VARCHAR(255)
+    place VARCHAR(255),
+    accessToken VARCHAR(255)
 )
 ```
 
